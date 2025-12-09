@@ -70,7 +70,7 @@ bash CS329x_Final/DebateQA_training/train_debateqa_llm_judge_search_cite.sh
 # ResearchyQA (port 8001)
 bash CS329x_Final/ResearchyQA_inference/start_server_researchy_inference.sh
 
-# DebateQA (port 8000)
+# DebateQA (port 8001)
 bash CS329x_Final/DebateQA_inference/start_server_researchy_inference.sh
 ```
 
