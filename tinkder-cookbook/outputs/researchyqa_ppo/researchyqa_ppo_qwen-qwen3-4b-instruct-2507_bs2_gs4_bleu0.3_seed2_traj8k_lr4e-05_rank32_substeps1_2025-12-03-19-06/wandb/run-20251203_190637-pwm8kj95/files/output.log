@@ -1,0 +1,59 @@
+[34m[1mwandb[0m: Detected [google.genai] in use.
+[34m[1mwandb[0m: Use W&B Weave for improved LLM call tracing. Install Weave with `pip install weave` then add `import weave` to the top of your script.
+[34m[1mwandb[0m: For more information, check out the docs at: https://weave-docs.wandb.ai/
+tinker_cookbook.utils.ml_log:475 [[92mINFO[0m] Logging to: /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa_ppo/researchyqa_ppo_qwen-qwen3-4b-instruct-2507_bs2_gs4_bleu0.3_seed2_traj8k_lr4e-05_rank32_substeps1_2025-12-03-19-06
+tinker_cookbook.checkpoint_utils:19 [[92mINFO[0m] No checkpoints found at /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa_ppo/researchyqa_ppo_qwen-qwen3-4b-instruct-2507_bs2_gs4_bleu0.3_seed2_traj8k_lr4e-05_rank32_substeps1_2025-12-03-19-06/checkpoints.jsonl
+tinker_cookbook.checkpoint_utils:48 [[92mINFO[0m] No checkpoints found with key state_path in /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa_ppo/researchyqa_ppo_qwen-qwen3-4b-instruct-2507_bs2_gs4_bleu0.3_seed2_traj8k_lr4e-05_rank32_substeps1_2025-12-03-19-06
+tinker.lib.public_interfaces.service_client:61 [[92mINFO[0m] ServiceClient initialized for session ed45b42e-f6b1-5b82-a1e5-25dbec373b7c
+tinker.lib.public_interfaces.service_client:126 [[92mINFO[0m] Creating TrainingClient for model_id='ed45b42e-f6b1-5b82-a1e5-25dbec373b7c:train:0'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/recipes/tool_use/search/train_researchyqa_ppo.py", line 219, in <module>
+    asyncio.run(cli_main(cli_config))
+  File "/opt/miniconda3/envs/cs329x_hw2/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/cs329x_hw2/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/cs329x_hw2/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/recipes/tool_use/search/train_researchyqa_ppo.py", line 214, in cli_main
+    await train.main(config)
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/utils/trace.py", line 332, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/rl/train.py", line 1075, in main
+    dataset, maybe_test_dataset = await cfg.dataset_builder()
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/recipes/tool_use/search/researchyqa_env.py", line 329, in __call__
+    chroma_tool_client = await ChromaToolClient.create(self.chroma_tool_config)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/recipes/tool_use/search/tools.py", line 74, in create
+    chroma_client = await chromadb.AsyncHttpClient(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/cs329x_hw2/lib/python3.11/site-packages/chromadb/__init__.py", line 344, in AsyncHttpClient
+    return await AsyncClientCreator.create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/cs329x_hw2/lib/python3.11/site-packages/chromadb/api/async_client.py", line 90, in create
+    await self._validate_tenant_database(tenant=self.tenant, database=self.database)
+  File "/opt/miniconda3/envs/cs329x_hw2/lib/python3.11/site-packages/chromadb/api/async_client.py", line 142, in _validate_tenant_database
+    raise e
+  File "/opt/miniconda3/envs/cs329x_hw2/lib/python3.11/site-packages/chromadb/api/async_client.py", line 135, in _validate_tenant_database
+    await self._admin_client.get_tenant(name=tenant)
+  File "/opt/miniconda3/envs/cs329x_hw2/lib/python3.11/site-packages/chromadb/api/async_client.py", line 516, in get_tenant
+    return await self._server.get_tenant(name=name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/cs329x_hw2/lib/python3.11/site-packages/chromadb/telemetry/opentelemetry/__init__.py", line 134, in async_wrapper
+    return await f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/cs329x_hw2/lib/python3.11/site-packages/chromadb/api/async_fastapi.py", line 245, in get_tenant
+    resp_json = await self._make_request(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/cs329x_hw2/lib/python3.11/site-packages/chromadb/api/async_fastapi.py", line 158, in _make_request
+    BaseHTTPClient._raise_chroma_error(response)
+  File "/opt/miniconda3/envs/cs329x_hw2/lib/python3.11/site-packages/chromadb/api/base_http_client.py", line 97, in _raise_chroma_error
+    raise chroma_error
+chromadb.errors.InternalError: Database error: error returned from database: (code: 14) unable to open database file

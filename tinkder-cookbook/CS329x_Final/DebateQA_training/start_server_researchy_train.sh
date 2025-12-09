@@ -1,0 +1,1 @@
+chroma run --host localhost --path /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/CS329x_Final/DebateQA_training/chroma_db --port 8000

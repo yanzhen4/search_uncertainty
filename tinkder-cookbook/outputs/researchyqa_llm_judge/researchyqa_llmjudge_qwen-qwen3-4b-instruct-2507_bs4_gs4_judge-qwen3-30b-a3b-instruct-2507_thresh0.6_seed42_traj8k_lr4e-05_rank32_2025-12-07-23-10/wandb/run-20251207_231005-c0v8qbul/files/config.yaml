@@ -1,0 +1,306 @@
+_wandb:
+    value:
+        cli_version: 0.22.3
+        e:
+            gqeqf113kbhonv8ejo7z42y42o9umaqd:
+                apple:
+                    ecpuCores: 6
+                    gpuCores: 10
+                    memoryGb: 16
+                    name: Apple M4
+                    pcpuCores: 4
+                    ramTotalBytes: "17179869184"
+                    swapTotalBytes: "2147483648"
+                args:
+                    - model_name=Qwen/Qwen3-4B-Instruct-2507
+                    - lora_rank=32
+                    - judge_model_name=Qwen/Qwen3-30B-A3B-Instruct-2507
+                    - judge_model_path=tinker://2b33e94d-bdea-4c21-bdb7-2af143b79c8e/sampler_weights/final
+                    - |-
+                      judge_rubric=Evaluate the answer based on the following aspects:
+
+                      1. **Search Tool Usage & Strategy**: How effectively did the model use the search tool? High-quality responses demonstrate strategic search behavior:
+                         - Multiple searches (typically 2-4) covering different aspects of the question
+                         - Well-formulated queries that target specific information needs
+                         - Follow-up searches that build upon initial results to fill gaps
+                         - Appropriate search breadth for complex or multi-faceted questions
+
+                      2. **Evidence-Based Reasoning**: How well does the answer use retrieved information?
+                         - Clear citations referencing search results (e.g., "According to the search results...", "The retrieved documents indicate...")
+                         - Claims are grounded in evidence from searches, not speculation
+                         - Transparent about what information was found and what limitations exist
+                         - Synthesizes information from multiple search results when applicable
+
+                      3. **Balanced Perspective & Completeness**: For topics with multiple viewpoints:
+                         - Acknowledges different perspectives when relevant (e.g., "Some argue... while others contend...")
+                         - Presents controversial topics fairly without bias
+                         - Indicates when there are debates or disagreements in the literature
+                         - Addresses multiple aspects of complex questions
+
+                      Scoring guidance:
+                      - 0.8-1.0: Excellent use of search, strong evidence-based reasoning, balanced perspective
+                      - 0.6-0.7: Good search usage, mostly evidence-based, generally balanced
+                      - 0.4-0.5: Adequate searches but could be more strategic, some unsupported claims
+                      - 0.2-0.3: Limited search effectiveness, weak evidence grounding
+                      - 0.0-0.1: Poor quality or failed to meet basic requirements
+                    - |
+                      system_prompt=
+                      You are an expert research assistant who uses a Wikipedia search tool to find accurate, well-sourced information.
+
+                      Tool calling: Execute the tool by wrapping calls in <tool_call>...</tool_call>
+
+                      The search tool you have access to:
+                      ```
+                      {
+                          "name": "search",
+                          "title": "Wikipedia search",
+                          "description": "Searches Wikipedia for relevant information based on the given query.",
+                          "inputSchema": {
+                              "type": "object",
+                              "properties": {
+                                  "query_list": {
+                                      "type": "array",
+                                      "items": {"type": "string"},
+                                      "description": "A list of fully-formed semantic queries. The tool will return search results for each query.",
+                                  }
+                              },
+                              "required": ["query_list"],
+                          },
+                          "outputSchema": {
+                              "type": "string",
+                              "description": "The search results in JSON format",
+                          },
+                      }
+                      ```
+
+                      How to approach research questions:
+
+                      1. **Plan your searches**: Think about what information you need. Formulate 1-3 initial search queries that target key aspects of the question.
+
+                      2. **Execute searches**: Call the search tool with your queries:
+                         <tool_call>{"name": "search", "args": {"query_list": ["query1", "query2", ...]}}</tool_call>
+
+                      3. **Assess and iterate**: Review the results. Do you have enough information? If not, perform follow-up searches to fill gaps or explore different angles.
+
+                      4. **Consider multiple perspectives**: For complex or controversial topics (politics, ethics, debates), search for different viewpoints using queries like "arguments for X", "criticisms of X", "perspectives on X".
+
+                      5. **Synthesize with citations**: Build your answer from the search results. Cite sources explicitly with phrases like "According to the search results...", "The retrieved documents indicate...", or "Based on the information found...".
+
+                      6. **Present balanced views**: When relevant, acknowledge different perspectives: "Some argue... while others contend..." or "Research suggests... however, critics point out...".
+
+                      7. **Format your answer**: Present your final answer after the "Answer:" prefix.
+
+                      Example workflow:
+                      Question: "Between 2020 and 2025, which year did New York City see the most population growth and how did San Francisco population change in that year?"
+
+                      Think: I need NYC and SF population data for 2020-2025.
+                      <tool_call>{"name": "search", "args": {"query_list": ["New York City population growth 2020-2025", "San Francisco population change 2020-2025"]}}</tool_call>
+
+                      (After results) Think: Found NYC peak was 2024. Need specific SF 2024 data.
+                      <tool_call>{"name": "search", "args": {"query_list": ["San Francisco population 2024"]}}</tool_call>
+
+                      Answer: According to the search results, New York City saw the most population growth in 2024. Based on the retrieved data, San Francisco's population changed by XXXX in 2024.
+                    - learning_rate=4e-5
+                    - batch_size=4
+                    - group_size=4
+                    - seed=42
+                    - max_tokens=1024
+                    - eval_every=0
+                    - max_trajectory_tokens=8192
+                    - quality_threshold=0.6
+                    - questions_path=CS329x_Final/DebateQA_training/DebateQA_questions_200.jsonl
+                    - wandb_name=debateqa_multiperspective_cite_qwen-qwen3-4b-instruct-2507_bs4_gs4_judge-qwen3-30b-a3b-instruct-2507_thresh0.6_seed42_traj8k_lr4e-5_rank32_2025-12-07-23-10
+                cpu_count: 10
+                cpu_count_logical: 10
+                disk:
+                    /:
+                        total: "494384795648"
+                        used: "123357474816"
+                email: yanzhen4@stanford.edu
+                executable: /opt/miniconda3/envs/cs329x_hw2/bin/python
+                git:
+                    commit: 20e26a629797188aa8c6f34474b0d4757b20b90d
+                    remote: https://github.com/thinking-machines-lab/tinker-cookbook.git
+                host: Yanzhens-MacBook-Air.local
+                memory:
+                    total: "17179869184"
+                os: macOS-15.6-arm64-arm-64bit
+                program: -m tinker_cookbook.recipes.tool_use.search.train_researchyqa_llm_judge
+                python: CPython 3.11.14
+                root: /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa_llm_judge/researchyqa_llmjudge_qwen-qwen3-4b-instruct-2507_bs4_gs4_judge-qwen3-30b-a3b-instruct-2507_thresh0.6_seed42_traj8k_lr4e-05_rank32_2025-12-07-23-10
+                startedAt: "2025-12-08T07:10:05.999471Z"
+                writerId: gqeqf113kbhonv8ejo7z42y42o9umaqd
+        m: []
+        python_version: 3.11.14
+        t:
+            "1":
+                - 1
+                - 49
+                - 92
+                - 105
+            "2":
+                - 1
+                - 11
+                - 49
+                - 92
+                - 105
+            "3":
+                - 13
+                - 16
+            "4": 3.11.14
+            "5": 0.22.3
+            "12": 0.22.3
+            "13": darwin-arm64
+async_config:
+    value: null
+base_url:
+    value: null
+compute_post_kl:
+    value: false
+dataset_builder:
+    value:
+        batch_size: 4
+        chroma_tool_config:
+            chroma_collection_name: researchyqa_corpus
+            chroma_host: localhost
+            chroma_port: 8000
+            initial_retry_delay: 1
+            max_retries: 10
+            retrieval_config:
+                embedding_config:
+                    embedding_dim: 768
+                    model_name: gemini-embedding-001
+                    task_type: RETRIEVAL_QUERY
+                n_results: 3
+        convo_prefix: standard
+        group_size: 4
+        judge_model_name: Qwen/Qwen3-30B-A3B-Instruct-2507
+        judge_model_path: tinker://2b33e94d-bdea-4c21-bdb7-2af143b79c8e/sampler_weights/final
+        judge_rubric: |-
+            Evaluate the answer based on the following aspects:
+
+            1. **Search Tool Usage & Strategy**: How effectively did the model use the search tool? High-quality responses demonstrate strategic search behavior:
+               - Multiple searches (typically 2-4) covering different aspects of the question
+               - Well-formulated queries that target specific information needs
+               - Follow-up searches that build upon initial results to fill gaps
+               - Appropriate search breadth for complex or multi-faceted questions
+
+            2. **Evidence-Based Reasoning**: How well does the answer use retrieved information?
+               - Clear citations referencing search results (e.g., "According to the search results...", "The retrieved documents indicate...")
+               - Claims are grounded in evidence from searches, not speculation
+               - Transparent about what information was found and what limitations exist
+               - Synthesizes information from multiple search results when applicable
+
+            3. **Balanced Perspective & Completeness**: For topics with multiple viewpoints:
+               - Acknowledges different perspectives when relevant (e.g., "Some argue... while others contend...")
+               - Presents controversial topics fairly without bias
+               - Indicates when there are debates or disagreements in the literature
+               - Addresses multiple aspects of complex questions
+
+            Scoring guidance:
+            - 0.8-1.0: Excellent use of search, strong evidence-based reasoning, balanced perspective
+            - 0.6-0.7: Good search usage, mostly evidence-based, generally balanced
+            - 0.4-0.5: Adequate searches but could be more strategic, some unsupported claims
+            - 0.2-0.3: Limited search effectiveness, weak evidence grounding
+            - 0.0-0.1: Poor quality or failed to meet basic requirements
+        max_eval_size: 1024
+        max_trajectory_tokens: 8192
+        model_name_for_tokenizer: Qwen/Qwen3-4B-Instruct-2507
+        quality_threshold: 0.6
+        questions_path: CS329x_Final/DebateQA_training/DebateQA_questions_200.jsonl
+        renderer_name: qwen3_instruct
+        seed: 42
+        system_prompt: |4
+            You are an expert research assistant who uses a Wikipedia search tool to find accurate, well-sourced information.
+
+            Tool calling: Execute the tool by wrapping calls in <tool_call>...</tool_call>
+
+            The search tool you have access to:
+            ```
+            {
+                "name": "search",
+                "title": "Wikipedia search",
+                "description": "Searches Wikipedia for relevant information based on the given query.",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "query_list": {
+                            "type": "array",
+                            "items": {"type": "string"},
+                            "description": "A list of fully-formed semantic queries. The tool will return search results for each query.",
+                        }
+                    },
+                    "required": ["query_list"],
+                },
+                "outputSchema": {
+                    "type": "string",
+                    "description": "The search results in JSON format",
+                },
+            }
+            ```
+
+            How to approach research questions:
+
+            1. **Plan your searches**: Think about what information you need. Formulate 1-3 initial search queries that target key aspects of the question.
+
+            2. **Execute searches**: Call the search tool with your queries:
+               <tool_call>{"name": "search", "args": {"query_list": ["query1", "query2", ...]}}</tool_call>
+
+            3. **Assess and iterate**: Review the results. Do you have enough information? If not, perform follow-up searches to fill gaps or explore different angles.
+
+            4. **Consider multiple perspectives**: For complex or controversial topics (politics, ethics, debates), search for different viewpoints using queries like "arguments for X", "criticisms of X", "perspectives on X".
+
+            5. **Synthesize with citations**: Build your answer from the search results. Cite sources explicitly with phrases like "According to the search results...", "The retrieved documents indicate...", or "Based on the information found...".
+
+            6. **Present balanced views**: When relevant, acknowledge different perspectives: "Some argue... while others contend..." or "Research suggests... however, critics point out...".
+
+            7. **Format your answer**: Present your final answer after the "Answer:" prefix.
+
+            Example workflow:
+            Question: "Between 2020 and 2025, which year did New York City see the most population growth and how did San Francisco population change in that year?"
+
+            Think: I need NYC and SF population data for 2020-2025.
+            <tool_call>{"name": "search", "args": {"query_list": ["New York City population growth 2020-2025", "San Francisco population change 2020-2025"]}}</tool_call>
+
+            (After results) Think: Found NYC peak was 2024. Need specific SF 2024 data.
+            <tool_call>{"name": "search", "args": {"query_list": ["San Francisco population 2024"]}}</tool_call>
+
+            Answer: According to the search results, New York City saw the most population growth in 2024. Based on the retrieved data, San Francisco's population changed by XXXX in 2024.
+enable_trace:
+    value: false
+eval_every:
+    value: 0
+evaluator_builders:
+    value: []
+kl_discount_factor:
+    value: 0
+kl_penalty_coef:
+    value: 0
+learning_rate:
+    value: 4e-05
+load_checkpoint_path:
+    value: null
+log_path:
+    value: /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa_llm_judge/researchyqa_llmjudge_qwen-qwen3-4b-instruct-2507_bs4_gs4_judge-qwen3-30b-a3b-instruct-2507_thresh0.6_seed42_traj8k_lr4e-05_rank32_2025-12-07-23-10
+lora_rank:
+    value: 32
+loss_fn:
+    value: importance_sampling
+max_tokens:
+    value: 1024
+model_name:
+    value: Qwen/Qwen3-4B-Instruct-2507
+num_groups_to_log:
+    value: 4
+num_substeps:
+    value: 1
+remove_constant_reward_groups:
+    value: false
+save_every:
+    value: 20
+stream_minibatch_config:
+    value: null
+wandb_name:
+    value: debateqa_multiperspective_cite_qwen-qwen3-4b-instruct-2507_bs4_gs4_judge-qwen3-30b-a3b-instruct-2507_thresh0.6_seed42_traj8k_lr4e-5_rank32_2025-12-07-23-10
+wandb_project:
+    value: researchyqa-llm-judge

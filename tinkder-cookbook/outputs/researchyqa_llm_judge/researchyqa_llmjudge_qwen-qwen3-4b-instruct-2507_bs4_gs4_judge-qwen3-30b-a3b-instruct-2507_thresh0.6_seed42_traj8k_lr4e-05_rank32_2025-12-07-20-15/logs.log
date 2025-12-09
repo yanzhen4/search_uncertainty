@@ -1,0 +1,44 @@
+tinker_cookbook.utils.ml_log:475 [INFO] Logging to: /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa_llm_judge/researchyqa_llmjudge_qwen-qwen3-4b-instruct-2507_bs4_gs4_judge-qwen3-30b-a3b-instruct-2507_thresh0.6_seed42_traj8k_lr4e-05_rank32_2025-12-07-20-15
+tinker_cookbook.checkpoint_utils:19 [INFO] No checkpoints found at /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa_llm_judge/researchyqa_llmjudge_qwen-qwen3-4b-instruct-2507_bs4_gs4_judge-qwen3-30b-a3b-instruct-2507_thresh0.6_seed42_traj8k_lr4e-05_rank32_2025-12-07-20-15/checkpoints.jsonl
+tinker_cookbook.checkpoint_utils:48 [INFO] No checkpoints found with key state_path in /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa_llm_judge/researchyqa_llmjudge_qwen-qwen3-4b-instruct-2507_bs4_gs4_judge-qwen3-30b-a3b-instruct-2507_thresh0.6_seed42_traj8k_lr4e-05_rank32_2025-12-07-20-15
+tinker.lib.public_interfaces.service_client:61 [INFO] ServiceClient initialized for session 187ef5e3-6f66-5185-98da-7d1af71d0f87
+tinker.lib.public_interfaces.service_client:126 [INFO] Creating TrainingClient for model_id='187ef5e3-6f66-5185-98da-7d1af71d0f87:train:0'
+tinker.lib.public_interfaces.service_client:61 [INFO] ServiceClient initialized for session c9b0b789-ca03-5d51-badf-77d324f1f5b4
+tinker_cookbook.recipes.tool_use.search.researchyqa_llm_judge_env:513 [INFO] Loaded 200 questions for training
+tinker_cookbook.rl.train:1081 [INFO] Will train on 50 batches
+tinker_cookbook.utils.misc_utils:20 [INFO] Starting save_checkpoint
+tinker_cookbook.utils.misc_utils:23 [INFO] save_checkpoint took 15.39 seconds
+google.auth._default:731 [WARNING] No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+tinker_cookbook.recipes.tool_use.search.researchyqa_llm_judge_env:338 [ERROR] Error calling search tool: NotFoundError('Collection [researchyqa_corpus] does not exist')
+tinker_cookbook.recipes.tool_use.search.researchyqa_llm_judge_env:338 [ERROR] Error calling search tool: NotFoundError('Collection [researchyqa_corpus] does not exist')
+tinker_cookbook.recipes.tool_use.search.researchyqa_llm_judge_env:338 [ERROR] Error calling search tool: NotFoundError('Collection [researchyqa_corpus] does not exist')
+tinker_cookbook.recipes.tool_use.search.researchyqa_llm_judge_env:338 [ERROR] Error calling search tool: NotFoundError('Collection [researchyqa_corpus] does not exist')
+tinker_cookbook.recipes.tool_use.search.researchyqa_llm_judge_env:338 [ERROR] Error calling search tool: NotFoundError('Collection [researchyqa_corpus] does not exist')
+tinker_cookbook.recipes.tool_use.search.researchyqa_llm_judge_env:338 [ERROR] Error calling search tool: NotFoundError('Collection [researchyqa_corpus] does not exist')
+tinker_cookbook.recipes.tool_use.search.researchyqa_llm_judge_env:338 [ERROR] Error calling search tool: NotFoundError('Collection [researchyqa_corpus] does not exist')
+tinker_cookbook.recipes.tool_use.search.researchyqa_llm_judge_env:338 [ERROR] Error calling search tool: NotFoundError('Collection [researchyqa_corpus] does not exist')
+tinker_cookbook.recipes.tool_use.search.researchyqa_llm_judge_env:338 [ERROR] Error calling search tool: NotFoundError('Collection [researchyqa_corpus] does not exist')
+tinker_cookbook.recipes.tool_use.search.researchyqa_llm_judge_env:338 [ERROR] Error calling search tool: NotFoundError('Collection [researchyqa_corpus] does not exist')
+tinker_cookbook.recipes.tool_use.search.researchyqa_llm_judge_env:338 [ERROR] Error calling search tool: NotFoundError('Collection [researchyqa_corpus] does not exist')
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.

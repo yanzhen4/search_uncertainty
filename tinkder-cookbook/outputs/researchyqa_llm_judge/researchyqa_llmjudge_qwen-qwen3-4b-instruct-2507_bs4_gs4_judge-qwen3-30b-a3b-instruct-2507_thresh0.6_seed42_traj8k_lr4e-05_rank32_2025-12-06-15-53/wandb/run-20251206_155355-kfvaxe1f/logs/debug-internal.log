@@ -1,0 +1,12 @@
+{"time":"2025-12-06T15:53:55.32289-08:00","level":"INFO","msg":"stream: starting","core version":"0.22.3"}
+{"time":"2025-12-06T15:53:55.522062-08:00","level":"INFO","msg":"stream: created new stream","id":"kfvaxe1f"}
+{"time":"2025-12-06T15:53:55.522299-08:00","level":"INFO","msg":"handler: started","stream_id":"kfvaxe1f"}
+{"time":"2025-12-06T15:53:55.522468-08:00","level":"INFO","msg":"stream: started","id":"kfvaxe1f"}
+{"time":"2025-12-06T15:53:55.522483-08:00","level":"INFO","msg":"writer: started","stream_id":"kfvaxe1f"}
+{"time":"2025-12-06T15:53:55.522624-08:00","level":"INFO","msg":"sender: started","stream_id":"kfvaxe1f"}
+{"time":"2025-12-06T16:38:47.365824-08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-12-06T16:38:47.563487-08:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-12-06T16:38:47.571756-08:00","level":"INFO","msg":"stream: closing","id":"kfvaxe1f"}
+{"time":"2025-12-06T16:38:47.572093-08:00","level":"INFO","msg":"handler: closed","stream_id":"kfvaxe1f"}
+{"time":"2025-12-06T16:38:47.572515-08:00","level":"INFO","msg":"sender: closed","stream_id":"kfvaxe1f"}
+{"time":"2025-12-06T16:38:47.572561-08:00","level":"INFO","msg":"stream: closed","id":"kfvaxe1f"}

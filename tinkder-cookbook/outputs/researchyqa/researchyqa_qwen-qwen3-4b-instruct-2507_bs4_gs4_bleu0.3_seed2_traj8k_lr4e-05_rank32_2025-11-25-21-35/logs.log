@@ -1,0 +1,3 @@
+tinker_cookbook.utils.ml_log:475 [INFO] Logging to: /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa/researchyqa_qwen-qwen3-4b-instruct-2507_bs4_gs4_bleu0.3_seed2_traj8k_lr4e-05_rank32_2025-11-25-21-35
+tinker_cookbook.checkpoint_utils:19 [INFO] No checkpoints found at /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa/researchyqa_qwen-qwen3-4b-instruct-2507_bs4_gs4_bleu0.3_seed2_traj8k_lr4e-05_rank32_2025-11-25-21-35/checkpoints.jsonl
+tinker_cookbook.checkpoint_utils:48 [INFO] No checkpoints found with key state_path in /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa/researchyqa_qwen-qwen3-4b-instruct-2507_bs4_gs4_bleu0.3_seed2_traj8k_lr4e-05_rank32_2025-11-25-21-35

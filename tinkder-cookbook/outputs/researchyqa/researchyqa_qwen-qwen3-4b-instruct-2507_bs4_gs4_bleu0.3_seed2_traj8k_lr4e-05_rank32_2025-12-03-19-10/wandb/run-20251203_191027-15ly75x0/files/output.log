@@ -1,0 +1,578 @@
+[34m[1mwandb[0m: Detected [google.genai] in use.
+[34m[1mwandb[0m: Use W&B Weave for improved LLM call tracing. Install Weave with `pip install weave` then add `import weave` to the top of your script.
+[34m[1mwandb[0m: For more information, check out the docs at: https://weave-docs.wandb.ai/
+tinker_cookbook.utils.ml_log:475 [[92mINFO[0m] Logging to: /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa/researchyqa_qwen-qwen3-4b-instruct-2507_bs4_gs4_bleu0.3_seed2_traj8k_lr4e-05_rank32_2025-12-03-19-10
+tinker_cookbook.checkpoint_utils:19 [[92mINFO[0m] No checkpoints found at /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa/researchyqa_qwen-qwen3-4b-instruct-2507_bs4_gs4_bleu0.3_seed2_traj8k_lr4e-05_rank32_2025-12-03-19-10/checkpoints.jsonl
+tinker_cookbook.checkpoint_utils:48 [[92mINFO[0m] No checkpoints found with key state_path in /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa/researchyqa_qwen-qwen3-4b-instruct-2507_bs4_gs4_bleu0.3_seed2_traj8k_lr4e-05_rank32_2025-12-03-19-10
+tinker.lib.public_interfaces.service_client:61 [[92mINFO[0m] ServiceClient initialized for session 15367372-1df3-520e-8a13-2176c13e799f
+tinker.lib.public_interfaces.service_client:126 [[92mINFO[0m] Creating TrainingClient for model_id='15367372-1df3-520e-8a13-2176c13e799f:train:0'
+tinker_cookbook.recipes.tool_use.search.researchyqa_env:273 [[92mINFO[0m] Loaded 80 questions for train split
+tinker_cookbook.rl.train:1081 [[92mINFO[0m] Will train on 20 batches
+tinker_cookbook.utils.misc_utils:20 [[92mINFO[0m] Starting save_checkpoint
+tinker_cookbook.utils.misc_utils:23 [[92mINFO[0m] save_checkpoint took 4.40 seconds
+tinker_cookbook.rl.train:134 [[92mINFO[0m]
+====== Trajectory Group ======
+****** trajectory idx=0, reward=-0.1 ******
+Per-step metrics:
+  Step 0:
+    format: 0.0
+    correct: 0.0
+    bleu_score: 0.0
+    bleu_correct: 0.0
+---- datum ----
+[33m<|im_start|>system
+[0m[33m
+[0m[33mYou are an expert assistant who solves tasks using a Wikipedia search tool.
+[0m[33mTool calling. Execute the tool by wrapping calls in <function_call>...</function_call>
+[0m[33m
+[0m[33mThe search tool you are given has the following schema:
+[0m[33m```
+[0m[33m{
+[0m[33m    "name": "search",
+[0m[33m    "title": "Wikipedia search",
+[0m[33m    "description": "Searches Wikipedia for relevant information based on the given query.",
+[0m[33m    "inputSchema": {
+[0m[33m        "type": "object",
+[0m[33m        "properties": {
+[0m[33m            "query_list": {
+[0m[33m                "type": "array",
+[0m[33m                "items": {"type": "string"},
+[0m[33m                "description": "A list of fully-formed semantic queries. The tool will return search results for each query.",
+[0m[33m            }
+[0m[33m        },
+[0m[33m        "required": ["query_list"],
+[0m[33m    },
+[0m[33m    "outputSchema": {
+[0m[33m        "type": "string",
+[0m[33m        "description": "The search results in JSON format",
+[0m[33m    },
+[0m[33m}
+[0m[33m```
+[0m[33m
+[0m[33mHere are instructions for how to solve a problem:
+[0m[33m1. Think step by step before calling the tool and after you receive the result of the tool call. Decide what queries to call the tool with.
+[0m[33m2. Call the tool with the queries you have decided on.
+[0m[33m3. Think step by step again after you receive the result of the tool call. If you have the information you need, you can stop here.
+[0m[33m4. Otherwise, come up with new queries that combine information from the previous results.
+[0m[33m5. Include your final answer after the "Answer:" prefix. The answer should be between one to five words.
+[0m[33m
+[0m[33mHere is an example of solving a real question:
+[0m[33m“Between 2020 and 2025, which year did New York City see the most population growth and how did San Francisco population change in that year?”
+[0m[33m
+[0m[33m1. Think step by step: In order to answer this question, I need to know the population of New York City and San Francisco between 2020 and 2025. I will search for the population of New York City in each year
+[0m[33m2. Calling search tool: <function_call>{"name": "search", "args": {"query_list": ["Population New York city between 2020 and 2025"]}}</function_call> (Output omitted for brevity)
+[0m[33m3. Think step by step again: I have the population of New York City in each year, and I see that the population of New York City grew the most in 2024. I need to know the population of San Francisco in 2024. I will search for the population of San Francisco in each year.
+[0m[33m<function_call>{"name": "search", "args": {"query_list": ["Population San Francisco between 2023 and 2024"]}}</function_call> (Output omitted for brevity)
+[0m[33m4. Answer: The population of New York City grew the most in 2024, and the population of San Francisco changed by XXXX in 2024.
+[0m[33m<|im_end|>
+[0m[33m<|im_start|>user
+[0m[33mhow did the quota system limit immigration<|im_end|>
+[0m[33m<|im_start|>assistant
+[0m[33m<function_call>{"name": "search", "args": {"query_list": ["how quota system limited immigration"]}}</function_call><|im_end|>[0m
+****** trajectory idx=1, reward=-0.1 ******
+Per-step metrics:
+  Step 0:
+    format: 0.0
+    correct: 0.0
+    bleu_score: 0.0
+    bleu_correct: 0.0
+---- datum ----
+[33m<|im_start|>system
+[0m[33m
+[0m[33mYou are an expert assistant who solves tasks using a Wikipedia search tool.
+[0m[33mTool calling. Execute the tool by wrapping calls in <function_call>...</function_call>
+[0m[33m
+[0m[33mThe search tool you are given has the following schema:
+[0m[33m```
+[0m[33m{
+[0m[33m    "name": "search",
+[0m[33m    "title": "Wikipedia search",
+[0m[33m    "description": "Searches Wikipedia for relevant information based on the given query.",
+[0m[33m    "inputSchema": {
+[0m[33m        "type": "object",
+[0m[33m        "properties": {
+[0m[33m            "query_list": {
+[0m[33m                "type": "array",
+[0m[33m                "items": {"type": "string"},
+[0m[33m                "description": "A list of fully-formed semantic queries. The tool will return search results for each query.",
+[0m[33m            }
+[0m[33m        },
+[0m[33m        "required": ["query_list"],
+[0m[33m    },
+[0m[33m    "outputSchema": {
+[0m[33m        "type": "string",
+[0m[33m        "description": "The search results in JSON format",
+[0m[33m    },
+[0m[33m}
+[0m[33m```
+[0m[33m
+[0m[33mHere are instructions for how to solve a problem:
+[0m[33m1. Think step by step before calling the tool and after you receive the result of the tool call. Decide what queries to call the tool with.
+[0m[33m2. Call the tool with the queries you have decided on.
+[0m[33m3. Think step by step again after you receive the result of the tool call. If you have the information you need, you can stop here.
+[0m[33m4. Otherwise, come up with new queries that combine information from the previous results.
+[0m[33m5. Include your final answer after the "Answer:" prefix. The answer should be between one to five words.
+[0m[33m
+[0m[33mHere is an example of solving a real question:
+[0m[33m“Between 2020 and 2025, which year did New York City see the most population growth and how did San Francisco population change in that year?”
+[0m[33m
+[0m[33m1. Think step by step: In order to answer this question, I need to know the population of New York City and San Francisco between 2020 and 2025. I will search for the population of New York City in each year
+[0m[33m2. Calling search tool: <function_call>{"name": "search", "args": {"query_list": ["Population New York city between 2020 and 2025"]}}</function_call> (Output omitted for brevity)
+[0m[33m3. Think step by step again: I have the population of New York City in each year, and I see that the population of New York City grew the most in 2024. I need to know the population of San Francisco in 2024. I will search for the population of San Francisco in each year.
+[0m[33m<function_call>{"name": "search", "args": {"query_list": ["Population San Francisco between 2023 and 2024"]}}</function_call> (Output omitted for brevity)
+[0m[33m4. Answer: The population of New York City grew the most in 2024, and the population of San Francisco changed by XXXX in 2024.
+[0m[33m<|im_end|>
+[0m[33m<|im_start|>user
+[0m[33mhow did the quota system limit immigration<|im_end|>
+[0m[33m<|im_start|>assistant
+[0m[33m<function_call>{"name": "search", "args": {"query_list": ["how quota system limited immigration"]}}</function_call><|im_end|>[0m
+****** trajectory idx=2, reward=-0.1 ******
+Per-step metrics:
+  Step 0:
+    format: 0.0
+    correct: 0.0
+    bleu_score: 0.0
+    bleu_correct: 0.0
+---- datum ----
+[33m<|im_start|>system
+[0m[33m
+[0m[33mYou are an expert assistant who solves tasks using a Wikipedia search tool.
+[0m[33mTool calling. Execute the tool by wrapping calls in <function_call>...</function_call>
+[0m[33m
+[0m[33mThe search tool you are given has the following schema:
+[0m[33m```
+[0m[33m{
+[0m[33m    "name": "search",
+[0m[33m    "title": "Wikipedia search",
+[0m[33m    "description": "Searches Wikipedia for relevant information based on the given query.",
+[0m[33m    "inputSchema": {
+[0m[33m        "type": "object",
+[0m[33m        "properties": {
+[0m[33m            "query_list": {
+[0m[33m                "type": "array",
+[0m[33m                "items": {"type": "string"},
+[0m[33m                "description": "A list of fully-formed semantic queries. The tool will return search results for each query.",
+[0m[33m            }
+[0m[33m        },
+[0m[33m        "required": ["query_list"],
+[0m[33m    },
+[0m[33m    "outputSchema": {
+[0m[33m        "type": "string",
+[0m[33m        "description": "The search results in JSON format",
+[0m[33m    },
+[0m[33m}
+[0m[33m```
+[0m[33m
+[0m[33mHere are instructions for how to solve a problem:
+[0m[33m1. Think step by step before calling the tool and after you receive the result of the tool call. Decide what queries to call the tool with.
+[0m[33m2. Call the tool with the queries you have decided on.
+[0m[33m3. Think step by step again after you receive the result of the tool call. If you have the information you need, you can stop here.
+[0m[33m4. Otherwise, come up with new queries that combine information from the previous results.
+[0m[33m5. Include your final answer after the "Answer:" prefix. The answer should be between one to five words.
+[0m[33m
+[0m[33mHere is an example of solving a real question:
+[0m[33m“Between 2020 and 2025, which year did New York City see the most population growth and how did San Francisco population change in that year?”
+[0m[33m
+[0m[33m1. Think step by step: In order to answer this question, I need to know the population of New York City and San Francisco between 2020 and 2025. I will search for the population of New York City in each year
+[0m[33m2. Calling search tool: <function_call>{"name": "search", "args": {"query_list": ["Population New York city between 2020 and 2025"]}}</function_call> (Output omitted for brevity)
+[0m[33m3. Think step by step again: I have the population of New York City in each year, and I see that the population of New York City grew the most in 2024. I need to know the population of San Francisco in 2024. I will search for the population of San Francisco in each year.
+[0m[33m<function_call>{"name": "search", "args": {"query_list": ["Population San Francisco between 2023 and 2024"]}}</function_call> (Output omitted for brevity)
+[0m[33m4. Answer: The population of New York City grew the most in 2024, and the population of San Francisco changed by XXXX in 2024.
+[0m[33m<|im_end|>
+[0m[33m<|im_start|>user
+[0m[33mhow did the quota system limit immigration<|im_end|>
+[0m[33m<|im_start|>assistant
+[0m[33m<function_call>{"name": "search", "args": {"query_list": ["how quota system limited immigration"]}}</function_call><|im_end|>[0m
+****** trajectory idx=3, reward=-0.1 ******
+Per-step metrics:
+  Step 0:
+    format: 0.0
+    correct: 0.0
+    bleu_score: 0.0
+    bleu_correct: 0.0
+---- datum ----
+[33m<|im_start|>system
+[0m[33m
+[0m[33mYou are an expert assistant who solves tasks using a Wikipedia search tool.
+[0m[33mTool calling. Execute the tool by wrapping calls in <function_call>...</function_call>
+[0m[33m
+[0m[33mThe search tool you are given has the following schema:
+[0m[33m```
+[0m[33m{
+[0m[33m    "name": "search",
+[0m[33m    "title": "Wikipedia search",
+[0m[33m    "description": "Searches Wikipedia for relevant information based on the given query.",
+[0m[33m    "inputSchema": {
+[0m[33m        "type": "object",
+[0m[33m        "properties": {
+[0m[33m            "query_list": {
+[0m[33m                "type": "array",
+[0m[33m                "items": {"type": "string"},
+[0m[33m                "description": "A list of fully-formed semantic queries. The tool will return search results for each query.",
+[0m[33m            }
+[0m[33m        },
+[0m[33m        "required": ["query_list"],
+[0m[33m    },
+[0m[33m    "outputSchema": {
+[0m[33m        "type": "string",
+[0m[33m        "description": "The search results in JSON format",
+[0m[33m    },
+[0m[33m}
+[0m[33m```
+[0m[33m
+[0m[33mHere are instructions for how to solve a problem:
+[0m[33m1. Think step by step before calling the tool and after you receive the result of the tool call. Decide what queries to call the tool with.
+[0m[33m2. Call the tool with the queries you have decided on.
+[0m[33m3. Think step by step again after you receive the result of the tool call. If you have the information you need, you can stop here.
+[0m[33m4. Otherwise, come up with new queries that combine information from the previous results.
+[0m[33m5. Include your final answer after the "Answer:" prefix. The answer should be between one to five words.
+[0m[33m
+[0m[33mHere is an example of solving a real question:
+[0m[33m“Between 2020 and 2025, which year did New York City see the most population growth and how did San Francisco population change in that year?”
+[0m[33m
+[0m[33m1. Think step by step: In order to answer this question, I need to know the population of New York City and San Francisco between 2020 and 2025. I will search for the population of New York City in each year
+[0m[33m2. Calling search tool: <function_call>{"name": "search", "args": {"query_list": ["Population New York city between 2020 and 2025"]}}</function_call> (Output omitted for brevity)
+[0m[33m3. Think step by step again: I have the population of New York City in each year, and I see that the population of New York City grew the most in 2024. I need to know the population of San Francisco in 2024. I will search for the population of San Francisco in each year.
+[0m[33m<function_call>{"name": "search", "args": {"query_list": ["Population San Francisco between 2023 and 2024"]}}</function_call> (Output omitted for brevity)
+[0m[33m4. Answer: The population of New York City grew the most in 2024, and the population of San Francisco changed by XXXX in 2024.
+[0m[33m<|im_end|>
+[0m[33m<|im_start|>user
+[0m[33mhow did the quota system limit immigration<|im_end|>
+[0m[33m<|im_start|>assistant
+[0m[33m<function_call>{"name": "search", "args": {"query_list": ["how quota system limited immigration"]}}</function_call><|im_end|>[0m
+====== End Trajectory Group ======
+tinker_cookbook.rl.train:134 [[92mINFO[0m]
+====== Trajectory Group ======
+****** trajectory idx=0, reward=-0.1 ******
+Per-step metrics:
+  Step 0:
+    format: 0.0
+    correct: 0.0
+    bleu_score: 0.0
+    bleu_correct: 0.0
+---- datum ----
+[33m<|im_start|>system
+[0m[33m
+[0m[33mYou are an expert assistant who solves tasks using a Wikipedia search tool.
+[0m[33mTool calling. Execute the tool by wrapping calls in <function_call>...</function_call>
+[0m[33m
+[0m[33mThe search tool you are given has the following schema:
+[0m[33m```
+[0m[33m{
+[0m[33m    "name": "search",
+[0m[33m    "title": "Wikipedia search",
+[0m[33m    "description": "Searches Wikipedia for relevant information based on the given query.",
+[0m[33m    "inputSchema": {
+[0m[33m        "type": "object",
+[0m[33m        "properties": {
+[0m[33m            "query_list": {
+[0m[33m                "type": "array",
+[0m[33m                "items": {"type": "string"},
+[0m[33m                "description": "A list of fully-formed semantic queries. The tool will return search results for each query.",
+[0m[33m            }
+[0m[33m        },
+[0m[33m        "required": ["query_list"],
+[0m[33m    },
+[0m[33m    "outputSchema": {
+[0m[33m        "type": "string",
+[0m[33m        "description": "The search results in JSON format",
+[0m[33m    },
+[0m[33m}
+[0m[33m```
+[0m[33m
+[0m[33mHere are instructions for how to solve a problem:
+[0m[33m1. Think step by step before calling the tool and after you receive the result of the tool call. Decide what queries to call the tool with.
+[0m[33m2. Call the tool with the queries you have decided on.
+[0m[33m3. Think step by step again after you receive the result of the tool call. If you have the information you need, you can stop here.
+[0m[33m4. Otherwise, come up with new queries that combine information from the previous results.
+[0m[33m5. Include your final answer after the "Answer:" prefix. The answer should be between one to five words.
+[0m[33m
+[0m[33mHere is an example of solving a real question:
+[0m[33m“Between 2020 and 2025, which year did New York City see the most population growth and how did San Francisco population change in that year?”
+[0m[33m
+[0m[33m1. Think step by step: In order to answer this question, I need to know the population of New York City and San Francisco between 2020 and 2025. I will search for the population of New York City in each year
+[0m[33m2. Calling search tool: <function_call>{"name": "search", "args": {"query_list": ["Population New York city between 2020 and 2025"]}}</function_call> (Output omitted for brevity)
+[0m[33m3. Think step by step again: I have the population of New York City in each year, and I see that the population of New York City grew the most in 2024. I need to know the population of San Francisco in 2024. I will search for the population of San Francisco in each year.
+[0m[33m<function_call>{"name": "search", "args": {"query_list": ["Population San Francisco between 2023 and 2024"]}}</function_call> (Output omitted for brevity)
+[0m[33m4. Answer: The population of New York City grew the most in 2024, and the population of San Francisco changed by XXXX in 2024.
+[0m[33m<|im_end|>
+[0m[33m<|im_start|>user
+[0m[33mhow big companies avoid taxes<|im_end|>
+[0m[33m<|im_start|>assistant
+[0m[33m<function_call>{"name": "search", "args": {"query_list": ["how big companies avoid taxes"]}}</function_call><|im_end|>[0m
+****** trajectory idx=1, reward=-0.1 ******
+Per-step metrics:
+  Step 0:
+    format: 0.0
+    correct: 0.0
+    bleu_score: 0.0
+    bleu_correct: 0.0
+---- datum ----
+[33m<|im_start|>system
+[0m[33m
+[0m[33mYou are an expert assistant who solves tasks using a Wikipedia search tool.
+[0m[33mTool calling. Execute the tool by wrapping calls in <function_call>...</function_call>
+[0m[33m
+[0m[33mThe search tool you are given has the following schema:
+[0m[33m```
+[0m[33m{
+[0m[33m    "name": "search",
+[0m[33m    "title": "Wikipedia search",
+[0m[33m    "description": "Searches Wikipedia for relevant information based on the given query.",
+[0m[33m    "inputSchema": {
+[0m[33m        "type": "object",
+[0m[33m        "properties": {
+[0m[33m            "query_list": {
+[0m[33m                "type": "array",
+[0m[33m                "items": {"type": "string"},
+[0m[33m                "description": "A list of fully-formed semantic queries. The tool will return search results for each query.",
+[0m[33m            }
+[0m[33m        },
+[0m[33m        "required": ["query_list"],
+[0m[33m    },
+[0m[33m    "outputSchema": {
+[0m[33m        "type": "string",
+[0m[33m        "description": "The search results in JSON format",
+[0m[33m    },
+[0m[33m}
+[0m[33m```
+[0m[33m
+[0m[33mHere are instructions for how to solve a problem:
+[0m[33m1. Think step by step before calling the tool and after you receive the result of the tool call. Decide what queries to call the tool with.
+[0m[33m2. Call the tool with the queries you have decided on.
+[0m[33m3. Think step by step again after you receive the result of the tool call. If you have the information you need, you can stop here.
+[0m[33m4. Otherwise, come up with new queries that combine information from the previous results.
+[0m[33m5. Include your final answer after the "Answer:" prefix. The answer should be between one to five words.
+[0m[33m
+[0m[33mHere is an example of solving a real question:
+[0m[33m“Between 2020 and 2025, which year did New York City see the most population growth and how did San Francisco population change in that year?”
+[0m[33m
+[0m[33m1. Think step by step: In order to answer this question, I need to know the population of New York City and San Francisco between 2020 and 2025. I will search for the population of New York City in each year
+[0m[33m2. Calling search tool: <function_call>{"name": "search", "args": {"query_list": ["Population New York city between 2020 and 2025"]}}</function_call> (Output omitted for brevity)
+[0m[33m3. Think step by step again: I have the population of New York City in each year, and I see that the population of New York City grew the most in 2024. I need to know the population of San Francisco in 2024. I will search for the population of San Francisco in each year.
+[0m[33m<function_call>{"name": "search", "args": {"query_list": ["Population San Francisco between 2023 and 2024"]}}</function_call> (Output omitted for brevity)
+[0m[33m4. Answer: The population of New York City grew the most in 2024, and the population of San Francisco changed by XXXX in 2024.
+[0m[33m<|im_end|>
+[0m[33m<|im_start|>user
+[0m[33mhow big companies avoid taxes<|im_end|>
+[0m[33m<|im_start|>assistant
+[0m[33m<function_call>{"name": "search", "args": {"query_list": ["how big companies avoid taxes"]}}</function_call><|im_end|>[0m
+****** trajectory idx=2, reward=-0.1 ******
+Per-step metrics:
+  Step 0:
+    format: 0.0
+    correct: 0.0
+    bleu_score: 0.0
+    bleu_correct: 0.0
+---- datum ----
+[33m<|im_start|>system
+[0m[33m
+[0m[33mYou are an expert assistant who solves tasks using a Wikipedia search tool.
+[0m[33mTool calling. Execute the tool by wrapping calls in <function_call>...</function_call>
+[0m[33m
+[0m[33mThe search tool you are given has the following schema:
+[0m[33m```
+[0m[33m{
+[0m[33m    "name": "search",
+[0m[33m    "title": "Wikipedia search",
+[0m[33m    "description": "Searches Wikipedia for relevant information based on the given query.",
+[0m[33m    "inputSchema": {
+[0m[33m        "type": "object",
+[0m[33m        "properties": {
+[0m[33m            "query_list": {
+[0m[33m                "type": "array",
+[0m[33m                "items": {"type": "string"},
+[0m[33m                "description": "A list of fully-formed semantic queries. The tool will return search results for each query.",
+[0m[33m            }
+[0m[33m        },
+[0m[33m        "required": ["query_list"],
+[0m[33m    },
+[0m[33m    "outputSchema": {
+[0m[33m        "type": "string",
+[0m[33m        "description": "The search results in JSON format",
+[0m[33m    },
+[0m[33m}
+[0m[33m```
+[0m[33m
+[0m[33mHere are instructions for how to solve a problem:
+[0m[33m1. Think step by step before calling the tool and after you receive the result of the tool call. Decide what queries to call the tool with.
+[0m[33m2. Call the tool with the queries you have decided on.
+[0m[33m3. Think step by step again after you receive the result of the tool call. If you have the information you need, you can stop here.
+[0m[33m4. Otherwise, come up with new queries that combine information from the previous results.
+[0m[33m5. Include your final answer after the "Answer:" prefix. The answer should be between one to five words.
+[0m[33m
+[0m[33mHere is an example of solving a real question:
+[0m[33m“Between 2020 and 2025, which year did New York City see the most population growth and how did San Francisco population change in that year?”
+[0m[33m
+[0m[33m1. Think step by step: In order to answer this question, I need to know the population of New York City and San Francisco between 2020 and 2025. I will search for the population of New York City in each year
+[0m[33m2. Calling search tool: <function_call>{"name": "search", "args": {"query_list": ["Population New York city between 2020 and 2025"]}}</function_call> (Output omitted for brevity)
+[0m[33m3. Think step by step again: I have the population of New York City in each year, and I see that the population of New York City grew the most in 2024. I need to know the population of San Francisco in 2024. I will search for the population of San Francisco in each year.
+[0m[33m<function_call>{"name": "search", "args": {"query_list": ["Population San Francisco between 2023 and 2024"]}}</function_call> (Output omitted for brevity)
+[0m[33m4. Answer: The population of New York City grew the most in 2024, and the population of San Francisco changed by XXXX in 2024.
+[0m[33m<|im_end|>
+[0m[33m<|im_start|>user
+[0m[33mhow big companies avoid taxes<|im_end|>
+[0m[33m<|im_start|>assistant
+[0m[33m<function_call>{"name": "search", "args": {"query_list": ["how big companies avoid taxes"]}}</function_call><|im_end|>[0m
+****** trajectory idx=3, reward=-0.1 ******
+Per-step metrics:
+  Step 0:
+    format: 0.0
+    correct: 0.0
+    bleu_score: 0.0
+    bleu_correct: 0.0
+---- datum ----
+[33m<|im_start|>system
+[0m[33m
+[0m[33mYou are an expert assistant who solves tasks using a Wikipedia search tool.
+[0m[33mTool calling. Execute the tool by wrapping calls in <function_call>...</function_call>
+[0m[33m
+[0m[33mThe search tool you are given has the following schema:
+[0m[33m```
+[0m[33m{
+[0m[33m    "name": "search",
+[0m[33m    "title": "Wikipedia search",
+[0m[33m    "description": "Searches Wikipedia for relevant information based on the given query.",
+[0m[33m    "inputSchema": {
+[0m[33m        "type": "object",
+[0m[33m        "properties": {
+[0m[33m            "query_list": {
+[0m[33m                "type": "array",
+[0m[33m                "items": {"type": "string"},
+[0m[33m                "description": "A list of fully-formed semantic queries. The tool will return search results for each query.",
+[0m[33m            }
+[0m[33m        },
+[0m[33m        "required": ["query_list"],
+[0m[33m    },
+[0m[33m    "outputSchema": {
+[0m[33m        "type": "string",
+[0m[33m        "description": "The search results in JSON format",
+[0m[33m    },
+[0m[33m}
+[0m[33m```
+[0m[33m
+[0m[33mHere are instructions for how to solve a problem:
+[0m[33m1. Think step by step before calling the tool and after you receive the result of the tool call. Decide what queries to call the tool with.
+[0m[33m2. Call the tool with the queries you have decided on.
+[0m[33m3. Think step by step again after you receive the result of the tool call. If you have the information you need, you can stop here.
+[0m[33m4. Otherwise, come up with new queries that combine information from the previous results.
+[0m[33m5. Include your final answer after the "Answer:" prefix. The answer should be between one to five words.
+[0m[33m
+[0m[33mHere is an example of solving a real question:
+[0m[33m“Between 2020 and 2025, which year did New York City see the most population growth and how did San Francisco population change in that year?”
+[0m[33m
+[0m[33m1. Think step by step: In order to answer this question, I need to know the population of New York City and San Francisco between 2020 and 2025. I will search for the population of New York City in each year
+[0m[33m2. Calling search tool: <function_call>{"name": "search", "args": {"query_list": ["Population New York city between 2020 and 2025"]}}</function_call> (Output omitted for brevity)
+[0m[33m3. Think step by step again: I have the population of New York City in each year, and I see that the population of New York City grew the most in 2024. I need to know the population of San Francisco in 2024. I will search for the population of San Francisco in each year.
+[0m[33m<function_call>{"name": "search", "args": {"query_list": ["Population San Francisco between 2023 and 2024"]}}</function_call> (Output omitted for brevity)
+[0m[33m4. Answer: The population of New York City grew the most in 2024, and the population of San Francisco changed by XXXX in 2024.
+[0m[33m<|im_end|>
+[0m[33m<|im_start|>user
+[0m[33mhow big companies avoid taxes<|im_end|>
+[0m[33m<|im_start|>assistant
+[0m[33m<function_call>{"name": "search", "args": {"query_list": ["how big companies avoid taxes"]}}</function_call><|im_end|>[0m
+====== End Trajectory Group ======
+tinker_cookbook.utils.misc_utils:20 [[92mINFO[0m] Starting assemble_training_data
+tinker_cookbook.utils.misc_utils:23 [[92mINFO[0m] assemble_training_data took 0.01 seconds
+tinker_cookbook.utils.misc_utils:20 [[92mINFO[0m] Starting train
+tinker_cookbook.utils.misc_utils:23 [[92mINFO[0m] train took 2.88 seconds
+tinker_cookbook.utils.misc_utils:20 [[92mINFO[0m] Starting compute_kl_sample_train
+tinker_cookbook.utils.misc_utils:23 [[92mINFO[0m] compute_kl_sample_train took 0.01 seconds
+tinker_cookbook.utils.misc_utils:20 [[92mINFO[0m] Starting save_checkpoint
+tinker_cookbook.utils.misc_utils:23 [[92mINFO[0m] save_checkpoint took 3.91 seconds
+tinker_cookbook.utils.ml_log:143 [[92mINFO[0m] Wrote metrics to /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa/researchyqa_qwen-qwen3-4b-instruct-2507_bs4_gs4_bleu0.3_seed2_traj8k_lr4e-05_rank32_2025-12-03-19-10/metrics.jsonl
+tinker_cookbook.utils.ml_log:195 [[92mINFO[0m]
+[3m                    Step 0                     [0m
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┓
+┃[1;35m [0m[1;35mMetric                        [0m[1;35m [0m┃[1;35m [0m[1;35mValue     [0m[1;35m [0m┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━┩
+│[36m [0m[36menv/all/ac_tokens_per_turn    [0m[36m [0m│[32m [0m[32m28.250000 [0m[32m [0m│
+│[36m [0m[36menv/all/bleu_correct          [0m[36m [0m│[32m [0m[32m0.000000  [0m[32m [0m│
+│[36m [0m[36menv/all/bleu_score            [0m[36m [0m│[32m [0m[32m0.000000  [0m[32m [0m│
+│[36m [0m[36menv/all/by_group/frac_all_bad [0m[36m [0m│[32m [0m[32m1.000000  [0m[32m [0m│
+│[36m [0m[36menv/all/by_group/frac_all_good[0m[36m [0m│[32m [0m[32m0.000000  [0m[32m [0m│
+│[36m [0m[36menv/all/by_group/frac_mixed   [0m[36m [0m│[32m [0m[32m0.000000  [0m[32m [0m│
+│[36m [0m[36menv/all/correct               [0m[36m [0m│[32m [0m[32m0.000000  [0m[32m [0m│
+│[36m [0m[36menv/all/format                [0m[36m [0m│[32m [0m[32m0.000000  [0m[32m [0m│
+│[36m [0m[36menv/all/ob_tokens_per_turn    [0m[36m [0m│[32m [0m[32m633.250000[0m[32m [0m│
+│[36m [0m[36menv/all/reward/total          [0m[36m [0m│[32m [0m[32m-0.100000 [0m[32m [0m│
+│[36m [0m[36menv/all/total_ac_tokens       [0m[36m [0m│[32m [0m[32m452       [0m[32m [0m│
+│[36m [0m[36menv/all/total_episodes        [0m[36m [0m│[32m [0m[32m16        [0m[32m [0m│
+│[36m [0m[36menv/all/total_ob_tokens       [0m[36m [0m│[32m [0m[32m10132     [0m[32m [0m│
+│[36m [0m[36menv/all/total_turns           [0m[36m [0m│[32m [0m[32m16        [0m[32m [0m│
+│[36m [0m[36menv/all/turns_per_episode     [0m[36m [0m│[32m [0m[32m1.000000  [0m[32m [0m│
+│[36m [0m[36moptim/entropy                 [0m[36m [0m│[32m [0m[32m0.007254  [0m[32m [0m│
+│[36m [0m[36moptim/kl_sample_train_v1      [0m[36m [0m│[32m [0m[32m0.001449  [0m[32m [0m│
+│[36m [0m[36moptim/kl_sample_train_v2      [0m[36m [0m│[32m [0m[32m0.000135  [0m[32m [0m│
+│[36m [0m[36moptim/lr                      [0m[36m [0m│[32m [0m[32m0.000040  [0m[32m [0m│
+│[36m [0m[36mprogress/batch                [0m[36m [0m│[32m [0m[32m0         [0m[32m [0m│
+│[36m [0m[36mprogress/done_frac            [0m[36m [0m│[32m [0m[32m0.050000  [0m[32m [0m│
+│[36m [0m[36mtime/assemble_training_data   [0m[36m [0m│[32m [0m[32m0.010446  [0m[32m [0m│
+│[36m [0m[36mtime/compute_kl_sample_train  [0m[36m [0m│[32m [0m[32m0.008946  [0m[32m [0m│
+│[36m [0m[36mtime/save_checkpoint          [0m[36m [0m│[32m [0m[32m3.908206  [0m[32m [0m│
+│[36m [0m[36mtime/total                    [0m[36m [0m│[32m [0m[32m9.957972  [0m[32m [0m│
+│[36m [0m[36mtime/train                    [0m[36m [0m│[32m [0m[32m2.879174  [0m[32m [0m│
+└────────────────────────────────┴────────────┘
+tinker_cookbook.utils.ml_log:236 [[92mINFO[0m] Logging to: https://wandb.ai/yanzhen4_stanford-stanford-university/researchyqa-training/runs/15ly75x0
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/cs329x_hw2/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/cs329x_hw2/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/recipes/tool_use/search/train_researchyqa.py", line 202, in cli_main
+    await train.main(config)
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/utils/trace.py", line 332, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/rl/train.py", line 1090, in main
+    await training_func(
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/utils/trace.py", line 332, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/rl/train.py", line 987, in do_sync_training
+    trajectory_groups_P = await asyncio.gather(
+                          ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/utils/trace.py", line 332, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/rl/train.py", line 668, in do_group_rollout_and_filter_constant_reward
+    trajectory_group = await do_group_rollout(env_group_builder, policy)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/utils/logtree.py", line 520, in aw
+    return await fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/rl/rollouts.py", line 42, in do_group_rollout
+    trajectories_G = await asyncio.gather(*[do_single_rollout(policy, env) for env in envs_G])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/utils/logtree.py", line 520, in aw
+    return await fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/rl/rollouts.py", line 20, in do_single_rollout
+    ac_with_logprobs = await policy(ob, stop_condition)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/completers.py", line 63, in __call__
+    sample_result = await self.sampling_client.sample_async(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/cs329x_hw2/lib/python3.11/site-packages/tinker/lib/public_interfaces/sampling_client.py", line 199, in sample_async
+    return await AwaitableConcurrentFuture(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/cs329x_hw2/lib/python3.11/site-packages/tinker/lib/public_interfaces/api_future.py", line 37, in result_async
+    return await asyncio.wrap_future(self._future)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/recipes/tool_use/search/train_researchyqa.py", line 207, in <module>
+    asyncio.run(cli_main(cli_config))
+  File "/opt/miniconda3/envs/cs329x_hw2/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/cs329x_hw2/lib/python3.11/asyncio/runners.py", line 123, in run
+    raise KeyboardInterrupt()
+KeyboardInterrupt

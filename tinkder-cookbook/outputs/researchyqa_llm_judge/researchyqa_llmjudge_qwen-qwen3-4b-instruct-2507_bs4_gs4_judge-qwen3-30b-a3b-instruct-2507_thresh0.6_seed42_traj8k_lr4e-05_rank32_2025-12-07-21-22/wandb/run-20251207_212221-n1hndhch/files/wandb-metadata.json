@@ -1,0 +1,53 @@
+{
+  "os": "macOS-15.6-arm64-arm-64bit",
+  "python": "CPython 3.11.14",
+  "startedAt": "2025-12-08T05:22:21.206037Z",
+  "args": [
+    "model_name=Qwen/Qwen3-4B-Instruct-2507",
+    "lora_rank=32",
+    "judge_model_name=Qwen/Qwen3-30B-A3B-Instruct-2507",
+    "judge_model_path=tinker://2b33e94d-bdea-4c21-bdb7-2af143b79c8e/sampler_weights/final",
+    "judge_rubric=Evaluate the answer based on the following aspects:\n\n1. **Search Tool Usage & Strategy**: How effectively did the model use the search tool? High-quality responses demonstrate strategic search behavior:\n   - Multiple searches (typically 2-4) covering different aspects of the question\n   - Well-formulated queries that target specific information needs\n   - Follow-up searches that build upon initial results to fill gaps\n   - Appropriate search breadth for complex or multi-faceted questions\n\n2. **Document-Based Reasoning & Citation**: How well does the answer use and cite retrieved documents?\n   - Explicit document citations using numbered references (e.g., \"According to Document 1...\", \"Document 2 indicates...\")\n   - All claims are grounded in specific retrieved documents, not speculation\n   - Proper attribution showing which document supports each claim\n   - Synthesizes information from multiple documents with clear citations\n   - Does NOT make unsupported claims or add information not found in the retrieved documents\n\n3. **Balanced Perspective & Completeness**: For topics with multiple viewpoints:\n   - Acknowledges different perspectives from different documents (e.g., \"Document 1 argues... while Document 3 contends...\")\n   - Presents controversial topics fairly by citing multiple document sources\n   - Indicates when documents show debates or disagreements\n   - Addresses multiple aspects of complex questions using evidence from retrieved documents\n\nScoring guidance:\n- 0.8-1.0: Excellent search strategy, strong document-based reasoning with explicit citations (e.g., \"Document 1\", \"Document 2\"), balanced perspective\n- 0.6-0.7: Good search usage, mostly document-based with citations, generally balanced\n- 0.4-0.5: Adequate searches but weaker citation practice, some unsupported claims or vague references\n- 0.2-0.3: Limited search effectiveness, weak document grounding, missing or poor citations\n- 0.0-0.1: Poor quality, failed to cite documents properly, or made claims without document support",
+    "system_prompt=\nYou are an expert research assistant who uses a Wikipedia search tool to find accurate, well-sourced information. You MUST base your answers on the retrieved documents and cite them properly.\n\nTool calling: Execute the tool by wrapping calls in <tool_call>...</tool_call>\n\nThe search tool you have access to:\n```\n{\n    \"name\": \"search\",\n    \"title\": \"Wikipedia search\",\n    \"description\": \"Searches Wikipedia for relevant information based on the given query.\",\n    \"inputSchema\": {\n        \"type\": \"object\",\n        \"properties\": {\n            \"query_list\": {\n                \"type\": \"array\",\n                \"items\": {\"type\": \"string\"},\n                \"description\": \"A list of fully-formed semantic queries. The tool will return search results for each query.\",\n            }\n        },\n        \"required\": [\"query_list\"],\n    },\n    \"outputSchema\": {\n        \"type\": \"string\",\n        \"description\": \"The search results in JSON format\",\n    },\n}\n```\n\nHow to approach research questions:\n\n1. **Plan your searches**: Think about what information you need. Formulate 1-3 initial search queries that target key aspects of the question.\n\n2. **Execute searches**: Call the search tool with your queries:\n   <tool_call>{\"name\": \"search\", \"args\": {\"query_list\": [\"query1\", \"query2\", ...]}}</tool_call>\n   \n   The tool will return numbered documents (Document 1, Document 2, Document 3, etc.) for each query.\n\n3. **Assess and iterate**: Review the results. Do you have enough information? If not, perform follow-up searches to fill gaps or explore different angles.\n\n4. **Consider multiple perspectives**: For complex or controversial topics (politics, ethics, debates), search for different viewpoints using queries like \"arguments for X\", \"criticisms of X\", \"perspectives on X\".\n\n5. **Answer ONLY based on retrieved documents**: Your answer MUST be grounded in the documents returned by the search tool. Do NOT make claims without document support.\n\n6. **Cite documents by number**: When referencing information, explicitly cite which document(s) you are using. Use formats like:\n   - \"According to Document 1, ...\"\n   - \"Document 2 indicates that ...\"\n   - \"As stated in Document 3 and Document 5, ...\"\n   - \"Based on the information in Document 1, ...\"\n\n7. **Present balanced views**: When documents present multiple perspectives, acknowledge them: \"Document 1 argues... while Document 3 contends...\" or \"Documents 2 and 4 suggest... however, Document 5 points out...\".\n\n8. **Format your answer**: Present your final answer after the \"Answer:\" prefix with proper document citations.\n\nExample workflow:\nQuestion: \"Between 2020 and 2025, which year did New York City see the most population growth and how did San Francisco population change in that year?\"\n\nThink: I need NYC and SF population data for 2020-2025.\n<tool_call>{\"name\": \"search\", \"args\": {\"query_list\": [\"New York City population growth 2020-2025\", \"San Francisco population change 2020-2025\"]}}</tool_call>\n\n[Tool returns: Document 1 with NYC data, Document 2 with SF data]\n\n(After results) Think: Document 1 shows NYC peak was 2024. Need more specific SF 2024 data.\n<tool_call>{\"name\": \"search\", \"args\": {\"query_list\": [\"San Francisco population 2024\"]}}</tool_call>\n\n[Tool returns: Document 3 with detailed SF 2024 data]\n\nAnswer: According to Document 1, New York City saw the most population growth in 2024 with an increase of [X]. Document 3 indicates that San Francisco's population changed by [Y] in 2024, showing [increase/decrease].\n",
+    "learning_rate=4e-5",
+    "batch_size=4",
+    "group_size=4",
+    "seed=42",
+    "max_tokens=1024",
+    "eval_every=0",
+    "max_trajectory_tokens=8192",
+    "quality_threshold=0.6",
+    "questions_path=CS329x_Final/ResearchyQA_training/ResearchyQA_questions_200.jsonl",
+    "wandb_name=researchyqa_multiperspective_cite_qwen-qwen3-4b-instruct-2507_bs4_gs4_judge-qwen3-30b-a3b-instruct-2507_thresh0.6_seed42_traj8k_lr4e-5_rank32_2025-12-07-21-22"
+  ],
+  "program": "-m tinker_cookbook.recipes.tool_use.search.train_researchyqa_llm_judge",
+  "git": {
+    "remote": "https://github.com/thinking-machines-lab/tinker-cookbook.git",
+    "commit": "20e26a629797188aa8c6f34474b0d4757b20b90d"
+  },
+  "email": "yanzhen4@stanford.edu",
+  "root": "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa_llm_judge/researchyqa_llmjudge_qwen-qwen3-4b-instruct-2507_bs4_gs4_judge-qwen3-30b-a3b-instruct-2507_thresh0.6_seed42_traj8k_lr4e-05_rank32_2025-12-07-21-22",
+  "host": "Yanzhens-MacBook-Air.local",
+  "executable": "/opt/miniconda3/envs/cs329x_hw2/bin/python",
+  "cpu_count": 10,
+  "cpu_count_logical": 10,
+  "disk": {
+    "/": {
+      "total": "494384795648",
+      "used": "123236368384"
+    }
+  },
+  "memory": {
+    "total": "17179869184"
+  },
+  "apple": {
+    "name": "Apple M4",
+    "ecpuCores": 6,
+    "pcpuCores": 4,
+    "gpuCores": 10,
+    "memoryGb": 16,
+    "swapTotalBytes": "2147483648",
+    "ramTotalBytes": "17179869184"
+  },
+  "writerId": "p179ir0b2imj4x16p60m4bcf7hzb6w21"
+}

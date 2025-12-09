@@ -1,0 +1,13 @@
+{
+  "total_examples": 100,
+  "evaluated_examples": 100,
+  "not_evaluated_count": 0,
+  "mean_llm_judge_score": 0.0,
+  "median_llm_judge_score": 0.0,
+  "quality_pass_rate": 0.0,
+  "quality_pass_count": 0,
+  "format_accuracy": 0.0,
+  "mean_turns": 1.0,
+  "max_llm_score": 0.0,
+  "min_llm_score": 0.0
+}

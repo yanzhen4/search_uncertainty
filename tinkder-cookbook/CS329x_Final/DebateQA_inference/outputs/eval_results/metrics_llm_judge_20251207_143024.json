@@ -1,0 +1,12 @@
+{
+  "total_examples": 100,
+  "mean_llm_judge_score": 0.6579999999999997,
+  "median_llm_judge_score": 0.7,
+  "quality_pass_rate": 0.69,
+  "quality_pass_count": 69,
+  "error_count": 0,
+  "success_rate": 1.0,
+  "mean_turns": 1.0,
+  "max_llm_score": 1.0,
+  "min_llm_score": 0.0
+}

@@ -1,0 +1,53 @@
+{
+  "os": "macOS-15.6-arm64-arm-64bit",
+  "python": "CPython 3.11.14",
+  "startedAt": "2025-12-08T06:14:54.882176Z",
+  "args": [
+    "model_name=Qwen/Qwen3-4B-Instruct-2507",
+    "lora_rank=32",
+    "judge_model_name=Qwen/Qwen3-30B-A3B-Instruct-2507",
+    "judge_model_path=tinker://2b33e94d-bdea-4c21-bdb7-2af143b79c8e/sampler_weights/final",
+    "judge_rubric=Evaluate the answer based on the following aspects:\n\n1. **Search Tool Usage & Strategy**: How effectively did the model use the search tool? High-quality responses demonstrate strategic search behavior:\n   - Multiple searches (typically 2-4) covering different aspects of the question\n   - Well-formulated queries that target specific information needs\n   - Follow-up searches that build upon initial results to fill gaps\n   - Appropriate search breadth for complex or multi-faceted questions\n\n2. **Evidence-Based Reasoning**: How well does the answer use retrieved information?\n   - Clear citations referencing search results (e.g., \"According to the search results...\", \"The retrieved documents indicate...\")\n   - Claims are grounded in evidence from searches, not speculation\n   - Transparent about what information was found and what limitations exist\n   - Synthesizes information from multiple search results when applicable\n\n3. **Balanced Perspective & Completeness**: For topics with multiple viewpoints:\n   - Acknowledges different perspectives when relevant (e.g., \"Some argue... while others contend...\")\n   - Presents controversial topics fairly without bias\n   - Indicates when there are debates or disagreements in the literature\n   - Addresses multiple aspects of complex questions\n\nScoring guidance:\n- 0.8-1.0: Excellent use of search, strong evidence-based reasoning, balanced perspective\n- 0.6-0.7: Good search usage, mostly evidence-based, generally balanced\n- 0.4-0.5: Adequate searches but could be more strategic, some unsupported claims\n- 0.2-0.3: Limited search effectiveness, weak evidence grounding\n- 0.0-0.1: Poor quality or failed to meet basic requirements",
+    "system_prompt=\nYou are an expert research assistant who uses a Wikipedia search tool to find accurate, well-sourced information.\n\nTool calling: Execute the tool by wrapping calls in <tool_call>...</tool_call>\n\nThe search tool you have access to:\n```\n{\n    \"name\": \"search\",\n    \"title\": \"Wikipedia search\",\n    \"description\": \"Searches Wikipedia for relevant information based on the given query.\",\n    \"inputSchema\": {\n        \"type\": \"object\",\n        \"properties\": {\n            \"query_list\": {\n                \"type\": \"array\",\n                \"items\": {\"type\": \"string\"},\n                \"description\": \"A list of fully-formed semantic queries. The tool will return search results for each query.\",\n            }\n        },\n        \"required\": [\"query_list\"],\n    },\n    \"outputSchema\": {\n        \"type\": \"string\",\n        \"description\": \"The search results in JSON format\",\n    },\n}\n```\n\nHow to approach research questions:\n\n1. **Plan your searches**: Think about what information you need. Formulate 1-3 initial search queries that target key aspects of the question.\n\n2. **Execute searches**: Call the search tool with your queries:\n   <tool_call>{\"name\": \"search\", \"args\": {\"query_list\": [\"query1\", \"query2\", ...]}}</tool_call>\n\n3. **Assess and iterate**: Review the results. Do you have enough information? If not, perform follow-up searches to fill gaps or explore different angles.\n\n4. **Consider multiple perspectives**: For complex or controversial topics (politics, ethics, debates), search for different viewpoints using queries like \"arguments for X\", \"criticisms of X\", \"perspectives on X\".\n\n5. **Synthesize with citations**: Build your answer from the search results. Cite sources explicitly with phrases like \"According to the search results...\", \"The retrieved documents indicate...\", or \"Based on the information found...\".\n\n6. **Present balanced views**: When relevant, acknowledge different perspectives: \"Some argue... while others contend...\" or \"Research suggests... however, critics point out...\".\n\n7. **Format your answer**: Present your final answer after the \"Answer:\" prefix.\n\nExample workflow:\nQuestion: \"Between 2020 and 2025, which year did New York City see the most population growth and how did San Francisco population change in that year?\"\n\nThink: I need NYC and SF population data for 2020-2025.\n<tool_call>{\"name\": \"search\", \"args\": {\"query_list\": [\"New York City population growth 2020-2025\", \"San Francisco population change 2020-2025\"]}}</tool_call>\n\n(After results) Think: Found NYC peak was 2024. Need specific SF 2024 data.\n<tool_call>{\"name\": \"search\", \"args\": {\"query_list\": [\"San Francisco population 2024\"]}}</tool_call>\n\nAnswer: According to the search results, New York City saw the most population growth in 2024. Based on the retrieved data, San Francisco's population changed by XXXX in 2024.\n",
+    "learning_rate=4e-5",
+    "batch_size=4",
+    "group_size=4",
+    "seed=42",
+    "max_tokens=1024",
+    "eval_every=0",
+    "max_trajectory_tokens=8192",
+    "quality_threshold=0.6",
+    "questions_path=CS329x_Final/DebateQA_training/DebateQA_questions_200.jsonl",
+    "wandb_name=debateqa_multiperspective_cite_qwen-qwen3-4b-instruct-2507_bs4_gs4_judge-qwen3-30b-a3b-instruct-2507_thresh0.6_seed42_traj8k_lr4e-5_rank32_2025-12-07-22-14"
+  ],
+  "program": "-m tinker_cookbook.recipes.tool_use.search.train_researchyqa_llm_judge",
+  "git": {
+    "remote": "https://github.com/thinking-machines-lab/tinker-cookbook.git",
+    "commit": "20e26a629797188aa8c6f34474b0d4757b20b90d"
+  },
+  "email": "yanzhen4@stanford.edu",
+  "root": "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa_llm_judge/researchyqa_llmjudge_qwen-qwen3-4b-instruct-2507_bs4_gs4_judge-qwen3-30b-a3b-instruct-2507_thresh0.6_seed42_traj8k_lr4e-05_rank32_2025-12-07-22-14",
+  "host": "Yanzhens-MacBook-Air.local",
+  "executable": "/opt/miniconda3/envs/cs329x_hw2/bin/python",
+  "cpu_count": 10,
+  "cpu_count_logical": 10,
+  "disk": {
+    "/": {
+      "total": "494384795648",
+      "used": "123311796224"
+    }
+  },
+  "memory": {
+    "total": "17179869184"
+  },
+  "apple": {
+    "name": "Apple M4",
+    "ecpuCores": 6,
+    "pcpuCores": 4,
+    "gpuCores": 10,
+    "memoryGb": 16,
+    "swapTotalBytes": "2147483648",
+    "ramTotalBytes": "17179869184"
+  },
+  "writerId": "opxxmlpsmv52tc8dgwu3v2pifepyzudn"
+}

@@ -1,0 +1,10 @@
+{
+  "total_examples": 20,
+  "mean_bleu": 0.06620259563028648,
+  "median_bleu": 0.05663136621861025,
+  "accuracy": 0.05,
+  "correct_count": 1,
+  "mean_turns": 1.0,
+  "max_bleu": 0.3356485845647614,
+  "min_bleu": 5.924843858320654e-06
+}

@@ -1,0 +1,129 @@
+_wandb:
+    value:
+        cli_version: 0.22.3
+        e:
+            p8vzse6fo3v60zd13b86bcff56yd3b69:
+                apple:
+                    ecpuCores: 6
+                    gpuCores: 10
+                    memoryGb: 16
+                    name: Apple M4
+                    pcpuCores: 4
+                    ramTotalBytes: "17179869184"
+                    swapTotalBytes: "1073741824"
+                args:
+                    - questions_path=CS329x_Final/ResearchyQA/ResearchyQA_questions_with_answers_100.jsonl
+                    - judge_model_name=Qwen/Qwen3-30B-A3B-Instruct-2507
+                    - "judge_rubric=Consider the following aspects when evaluating the answer:\n\n1. **Factual Accuracy (Highest Priority)**: Is the information correct and verifiable against the reference answers?\n2. **Relevance**: Does the answer directly address the question asked?\n3. **Completeness**: Are all important aspects of the question covered adequately?\n4. **Use of Retrieved Context**: Does the answer appropriately incorporate information from the retrieved documents?\n5. **Clarity and Structure**: Is the answer well-organized, concise, and easy to understand?\n\nPrioritize factual accuracy and relevance. An answer that is factually correct but less eloquent \nshould score higher than a well-written but inaccurate answer."
+                cpu_count: 10
+                cpu_count_logical: 10
+                disk:
+                    /:
+                        total: "494384795648"
+                        used: "117391454208"
+                email: yanzhen4@stanford.edu
+                executable: /opt/miniconda3/envs/cs329x_hw2/bin/python
+                git:
+                    commit: 20e26a629797188aa8c6f34474b0d4757b20b90d
+                    remote: https://github.com/thinking-machines-lab/tinker-cookbook.git
+                host: Yanzhens-MacBook-Air.local
+                memory:
+                    total: "17179869184"
+                os: macOS-15.6-arm64-arm-64bit
+                program: -m tinker_cookbook.recipes.tool_use.search.train_researchyqa_llm_judge
+                python: CPython 3.11.14
+                root: /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa_llm_judge/researchyqa_llmjudge_qwen-qwen3-4b-instruct-2507_bs4_gs4_judge-qwen3-30b-a3b-instruct-2507_thresh0.6_seed2_traj8k_lr4e-05_rank32_2025-12-06-10-47
+                startedAt: "2025-12-06T18:47:49.352266Z"
+                writerId: p8vzse6fo3v60zd13b86bcff56yd3b69
+        m: []
+        python_version: 3.11.14
+        t:
+            "1":
+                - 1
+                - 49
+                - 92
+                - 105
+            "2":
+                - 1
+                - 11
+                - 49
+                - 92
+                - 105
+            "3":
+                - 13
+                - 16
+            "4": 3.11.14
+            "5": 0.22.3
+            "12": 0.22.3
+            "13": darwin-arm64
+async_config:
+    value: null
+base_url:
+    value: null
+compute_post_kl:
+    value: false
+dataset_builder:
+    value:
+        batch_size: 4
+        chroma_tool_config:
+            chroma_collection_name: researchyqa_corpus
+            chroma_host: localhost
+            chroma_port: 8000
+            initial_retry_delay: 1
+            max_retries: 10
+            retrieval_config:
+                embedding_config:
+                    embedding_dim: 768
+                    model_name: gemini-embedding-001
+                    task_type: RETRIEVAL_QUERY
+                n_results: 3
+        convo_prefix: standard
+        group_size: 4
+        judge_model_name: Qwen/Qwen3-30B-A3B-Instruct-2507
+        judge_model_path: null
+        judge_rubric: "Consider the following aspects when evaluating the answer:\n\n1. **Factual Accuracy (Highest Priority)**: Is the information correct and verifiable against the reference answers?\n2. **Relevance**: Does the answer directly address the question asked?\n3. **Completeness**: Are all important aspects of the question covered adequately?\n4. **Use of Retrieved Context**: Does the answer appropriately incorporate information from the retrieved documents?\n5. **Clarity and Structure**: Is the answer well-organized, concise, and easy to understand?\n\nPrioritize factual accuracy and relevance. An answer that is factually correct but less eloquent \nshould score higher than a well-written but inaccurate answer."
+        max_eval_size: 1024
+        max_trajectory_tokens: 8192
+        model_name_for_tokenizer: Qwen/Qwen3-4B-Instruct-2507
+        quality_threshold: 0.6
+        questions_path: CS329x_Final/ResearchyQA/ResearchyQA_questions_with_answers_100.jsonl
+        renderer_name: qwen3_instruct
+        seed: 2
+enable_trace:
+    value: false
+eval_every:
+    value: 0
+evaluator_builders:
+    value: []
+kl_discount_factor:
+    value: 0
+kl_penalty_coef:
+    value: 0
+learning_rate:
+    value: 4e-05
+load_checkpoint_path:
+    value: null
+log_path:
+    value: /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa_llm_judge/researchyqa_llmjudge_qwen-qwen3-4b-instruct-2507_bs4_gs4_judge-qwen3-30b-a3b-instruct-2507_thresh0.6_seed2_traj8k_lr4e-05_rank32_2025-12-06-10-47
+lora_rank:
+    value: 32
+loss_fn:
+    value: importance_sampling
+max_tokens:
+    value: 1024
+model_name:
+    value: Qwen/Qwen3-4B-Instruct-2507
+num_groups_to_log:
+    value: 4
+num_substeps:
+    value: 1
+remove_constant_reward_groups:
+    value: false
+save_every:
+    value: 20
+stream_minibatch_config:
+    value: null
+wandb_name:
+    value: researchyqa_llmjudge_qwen-qwen3-4b-instruct-2507_bs4_gs4_judge-qwen3-30b-a3b-instruct-2507_thresh0.6_seed2_traj8k_lr4e-05_rank32_2025-12-06-10-47
+wandb_project:
+    value: researchyqa-llm-judge

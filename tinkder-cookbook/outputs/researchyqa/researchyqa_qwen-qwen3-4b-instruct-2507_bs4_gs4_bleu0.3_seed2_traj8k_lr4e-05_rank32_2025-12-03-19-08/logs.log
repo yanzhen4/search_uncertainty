@@ -1,0 +1,5 @@
+tinker_cookbook.utils.ml_log:475 [INFO] Logging to: /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa/researchyqa_qwen-qwen3-4b-instruct-2507_bs4_gs4_bleu0.3_seed2_traj8k_lr4e-05_rank32_2025-12-03-19-08
+tinker_cookbook.checkpoint_utils:19 [INFO] No checkpoints found at /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa/researchyqa_qwen-qwen3-4b-instruct-2507_bs4_gs4_bleu0.3_seed2_traj8k_lr4e-05_rank32_2025-12-03-19-08/checkpoints.jsonl
+tinker_cookbook.checkpoint_utils:48 [INFO] No checkpoints found with key state_path in /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa/researchyqa_qwen-qwen3-4b-instruct-2507_bs4_gs4_bleu0.3_seed2_traj8k_lr4e-05_rank32_2025-12-03-19-08
+tinker.lib.public_interfaces.service_client:61 [INFO] ServiceClient initialized for session a636985d-e20d-5240-b366-ba4ef2ce6333
+tinker.lib.public_interfaces.service_client:126 [INFO] Creating TrainingClient for model_id='a636985d-e20d-5240-b366-ba4ef2ce6333:train:0'

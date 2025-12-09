@@ -1,0 +1,41 @@
+tinker_cookbook.utils.ml_log:475 [INFO] Logging to: /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa_llm_judge/researchyqa_llmjudge_qwen-qwen3-4b-instruct-2507_bs4_gs4_judge-qwen3-30b-a3b-instruct-2507_thresh0.6_seed42_traj8k_lr4e-05_rank32_2025-12-08-15-30
+tinker_cookbook.checkpoint_utils:19 [INFO] No checkpoints found at /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa_llm_judge/researchyqa_llmjudge_qwen-qwen3-4b-instruct-2507_bs4_gs4_judge-qwen3-30b-a3b-instruct-2507_thresh0.6_seed42_traj8k_lr4e-05_rank32_2025-12-08-15-30/checkpoints.jsonl
+tinker_cookbook.checkpoint_utils:48 [INFO] No checkpoints found with key state_path in /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa_llm_judge/researchyqa_llmjudge_qwen-qwen3-4b-instruct-2507_bs4_gs4_judge-qwen3-30b-a3b-instruct-2507_thresh0.6_seed42_traj8k_lr4e-05_rank32_2025-12-08-15-30
+tinker.lib.public_interfaces.service_client:61 [INFO] ServiceClient initialized for session 9ff686b8-ec57-5055-b346-768b1dff38e9
+tinker.lib.public_interfaces.service_client:126 [INFO] Creating TrainingClient for model_id='9ff686b8-ec57-5055-b346-768b1dff38e9:train:0'
+tinker.lib.public_interfaces.service_client:61 [INFO] ServiceClient initialized for session 4c2d35c0-015d-5eda-a7cc-d673bef468e6
+tinker_cookbook.recipes.tool_use.search.llm_judge_env:507 [INFO] Loaded 200 questions for training
+tinker_cookbook.rl.train:1081 [INFO] Will train on 50 batches
+tinker_cookbook.utils.misc_utils:20 [INFO] Starting save_checkpoint
+tinker_cookbook.utils.misc_utils:23 [INFO] save_checkpoint took 4.74 seconds
+google.auth._default:731 [WARNING] No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.
+asyncio:1054 [WARNING] socket.send() raised exception.

@@ -1,0 +1,2 @@
+{"name": "000020", "batch": 20, "state_path": "tinker://4e4bc45a-5366-5f9b-8ccb-79b311905093:train:0/weights/000020", "sampler_path": "tinker://4e4bc45a-5366-5f9b-8ccb-79b311905093:train:0/sampler_weights/000020"}
+{"name": "final", "batch": 20, "state_path": "tinker://4e4bc45a-5366-5f9b-8ccb-79b311905093:train:0/weights/final", "sampler_path": "tinker://4e4bc45a-5366-5f9b-8ccb-79b311905093:train:0/sampler_weights/final"}

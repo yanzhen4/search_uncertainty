@@ -1,0 +1,1 @@
+chroma run --host localhost --path CS329x_Final/ResearchyQA_inference/chroma_db --port 8001

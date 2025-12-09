@@ -1,0 +1,1 @@
+   chroma run --host localhost --port 8001 --path /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/CS329x_Final/DebateQA_inference/chroma_db

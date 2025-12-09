@@ -1,0 +1,51 @@
+{
+  "learning_rate": 4e-05,
+  "dataset_builder": {
+    "batch_size": 4,
+    "group_size": 4,
+    "model_name_for_tokenizer": "Qwen/Qwen3-4B-Instruct-2507",
+    "renderer_name": "qwen3_instruct",
+    "chroma_tool_config": {
+      "chroma_host": "localhost",
+      "chroma_port": 8000,
+      "chroma_collection_name": "researchyqa_corpus",
+      "retrieval_config": {
+        "n_results": 3,
+        "embedding_config": {
+          "model_name": "gemini-embedding-001",
+          "embedding_dim": 768,
+          "task_type": "RETRIEVAL_QUERY"
+        }
+      },
+      "max_retries": 10,
+      "initial_retry_delay": 1
+    },
+    "convo_prefix": "standard",
+    "seed": 2,
+    "max_eval_size": 1024,
+    "max_trajectory_tokens": 8192,
+    "bleu_threshold": 0.3,
+    "questions_path": "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/ResearchyQA/ResearchyQA_questions_with_answers_100.jsonl"
+  },
+  "model_name": "Qwen/Qwen3-4B-Instruct-2507",
+  "max_tokens": 1024,
+  "compute_post_kl": false,
+  "evaluator_builders": [],
+  "lora_rank": 32,
+  "kl_penalty_coef": 0.0,
+  "kl_discount_factor": 0.0,
+  "loss_fn": "importance_sampling",
+  "num_substeps": 1,
+  "wandb_project": "researchyqa-training",
+  "wandb_name": "researchyqa_qwen-qwen3-4b-instruct-2507_bs4_gs4_bleu0.3_seed2_traj8k_lr4e-05_rank32_2025-11-25-21-37",
+  "log_path": "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa/researchyqa_qwen-qwen3-4b-instruct-2507_bs4_gs4_bleu0.3_seed2_traj8k_lr4e-05_rank32_2025-11-25-21-37",
+  "base_url": null,
+  "enable_trace": false,
+  "remove_constant_reward_groups": false,
+  "eval_every": 0,
+  "save_every": 20,
+  "load_checkpoint_path": null,
+  "async_config": null,
+  "stream_minibatch_config": null,
+  "num_groups_to_log": 4
+}

@@ -1,0 +1,89 @@
+[34m[1mwandb[0m: Detected [google.genai] in use.
+[34m[1mwandb[0m: Use W&B Weave for improved LLM call tracing. Install Weave with `pip install weave` then add `import weave` to the top of your script.
+[34m[1mwandb[0m: For more information, check out the docs at: https://weave-docs.wandb.ai/
+tinker_cookbook.utils.ml_log:475 [[92mINFO[0m] Logging to: /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa_llm_judge/researchyqa_llmjudge_qwen-qwen3-4b-instruct-2507_bs4_gs4_judge-qwen3-30b-a3b-instruct-2507_thresh0.6_seed42_traj8k_lr4e-05_rank32_2025-12-07-20-15
+tinker_cookbook.checkpoint_utils:19 [[92mINFO[0m] No checkpoints found at /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa_llm_judge/researchyqa_llmjudge_qwen-qwen3-4b-instruct-2507_bs4_gs4_judge-qwen3-30b-a3b-instruct-2507_thresh0.6_seed42_traj8k_lr4e-05_rank32_2025-12-07-20-15/checkpoints.jsonl
+tinker_cookbook.checkpoint_utils:48 [[92mINFO[0m] No checkpoints found with key state_path in /Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa_llm_judge/researchyqa_llmjudge_qwen-qwen3-4b-instruct-2507_bs4_gs4_judge-qwen3-30b-a3b-instruct-2507_thresh0.6_seed42_traj8k_lr4e-05_rank32_2025-12-07-20-15
+tinker.lib.public_interfaces.service_client:61 [[92mINFO[0m] ServiceClient initialized for session 187ef5e3-6f66-5185-98da-7d1af71d0f87
+tinker.lib.public_interfaces.service_client:126 [[92mINFO[0m] Creating TrainingClient for model_id='187ef5e3-6f66-5185-98da-7d1af71d0f87:train:0'
+tinker.lib.public_interfaces.service_client:61 [[92mINFO[0m] ServiceClient initialized for session c9b0b789-ca03-5d51-badf-77d324f1f5b4
+tinker_cookbook.recipes.tool_use.search.researchyqa_llm_judge_env:513 [[92mINFO[0m] Loaded 200 questions for training
+tinker_cookbook.rl.train:1081 [[92mINFO[0m] Will train on 50 batches
+tinker_cookbook.utils.misc_utils:20 [[92mINFO[0m] Starting save_checkpoint
+tinker_cookbook.utils.misc_utils:23 [[92mINFO[0m] save_checkpoint took 15.39 seconds
+/opt/miniconda3/envs/cs329x_hw2/lib/python3.11/site-packages/google/auth/_default.py:108: UserWarning: Your application has authenticated using end user credentials from Google Cloud SDK without a quota project. You might receive a "quota exceeded" or "API not enabled" error. See the following page for troubleshooting: https://cloud.google.com/docs/authentication/adc-troubleshooting/user-creds.
+  warnings.warn(_CLOUD_SDK_CREDENTIALS_WARNING)
+google.auth._default:731 [[93mWARNING[0m] No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+tinker_cookbook.recipes.tool_use.search.researchyqa_llm_judge_env:338 [[91mERROR[0m] Error calling search tool: NotFoundError('Collection [researchyqa_corpus] does not exist')
+tinker_cookbook.recipes.tool_use.search.researchyqa_llm_judge_env:338 [[91mERROR[0m] Error calling search tool: NotFoundError('Collection [researchyqa_corpus] does not exist')
+tinker_cookbook.recipes.tool_use.search.researchyqa_llm_judge_env:338 [[91mERROR[0m] Error calling search tool: NotFoundError('Collection [researchyqa_corpus] does not exist')
+tinker_cookbook.recipes.tool_use.search.researchyqa_llm_judge_env:338 [[91mERROR[0m] Error calling search tool: NotFoundError('Collection [researchyqa_corpus] does not exist')
+tinker_cookbook.recipes.tool_use.search.researchyqa_llm_judge_env:338 [[91mERROR[0m] Error calling search tool: NotFoundError('Collection [researchyqa_corpus] does not exist')
+tinker_cookbook.recipes.tool_use.search.researchyqa_llm_judge_env:338 [[91mERROR[0m] Error calling search tool: NotFoundError('Collection [researchyqa_corpus] does not exist')
+tinker_cookbook.recipes.tool_use.search.researchyqa_llm_judge_env:338 [[91mERROR[0m] Error calling search tool: NotFoundError('Collection [researchyqa_corpus] does not exist')
+tinker_cookbook.recipes.tool_use.search.researchyqa_llm_judge_env:338 [[91mERROR[0m] Error calling search tool: NotFoundError('Collection [researchyqa_corpus] does not exist')
+tinker_cookbook.recipes.tool_use.search.researchyqa_llm_judge_env:338 [[91mERROR[0m] Error calling search tool: NotFoundError('Collection [researchyqa_corpus] does not exist')
+tinker_cookbook.recipes.tool_use.search.researchyqa_llm_judge_env:338 [[91mERROR[0m] Error calling search tool: NotFoundError('Collection [researchyqa_corpus] does not exist')
+tinker_cookbook.recipes.tool_use.search.researchyqa_llm_judge_env:338 [[91mERROR[0m] Error calling search tool: NotFoundError('Collection [researchyqa_corpus] does not exist')
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/cs329x_hw2/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/cs329x_hw2/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/recipes/tool_use/search/train_researchyqa_llm_judge.py", line 238, in cli_main
+    await train.main(config)
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/utils/trace.py", line 332, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/rl/train.py", line 1090, in main
+    await training_func(
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/utils/trace.py", line 332, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/rl/train.py", line 987, in do_sync_training
+    trajectory_groups_P = await asyncio.gather(
+                          ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/utils/trace.py", line 332, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/rl/train.py", line 668, in do_group_rollout_and_filter_constant_reward
+    trajectory_group = await do_group_rollout(env_group_builder, policy)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/utils/logtree.py", line 520, in aw
+    return await fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/rl/rollouts.py", line 42, in do_group_rollout
+    trajectories_G = await asyncio.gather(*[do_single_rollout(policy, env) for env in envs_G])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/utils/logtree.py", line 520, in aw
+    return await fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/rl/rollouts.py", line 20, in do_single_rollout
+    ac_with_logprobs = await policy(ob, stop_condition)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/completers.py", line 63, in __call__
+    sample_result = await self.sampling_client.sample_async(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/cs329x_hw2/lib/python3.11/site-packages/tinker/lib/public_interfaces/sampling_client.py", line 199, in sample_async
+    return await AwaitableConcurrentFuture(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/cs329x_hw2/lib/python3.11/site-packages/tinker/lib/public_interfaces/api_future.py", line 37, in result_async
+    return await asyncio.wrap_future(self._future)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/tinker_cookbook/recipes/tool_use/search/train_researchyqa_llm_judge.py", line 256, in <module>
+    asyncio.run(cli_main(cli_config))
+  File "/opt/miniconda3/envs/cs329x_hw2/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/envs/cs329x_hw2/lib/python3.11/asyncio/runners.py", line 123, in run
+    raise KeyboardInterrupt()
+KeyboardInterrupt

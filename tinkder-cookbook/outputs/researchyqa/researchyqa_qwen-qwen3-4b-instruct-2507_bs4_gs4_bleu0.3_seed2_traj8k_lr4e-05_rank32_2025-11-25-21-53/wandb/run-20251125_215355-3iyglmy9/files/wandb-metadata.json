@@ -1,0 +1,35 @@
+{
+  "os": "macOS-15.6-arm64-arm-64bit",
+  "python": "CPython 3.11.14",
+  "startedAt": "2025-11-26T05:53:55.616261Z",
+  "program": "-m tinker_cookbook.recipes.tool_use.search.train_researchyqa",
+  "git": {
+    "remote": "https://github.com/thinking-machines-lab/tinker-cookbook.git",
+    "commit": "20e26a629797188aa8c6f34474b0d4757b20b90d"
+  },
+  "email": "yanzhen4@stanford.edu",
+  "root": "/Users/yanzhenshen/Desktop/CS329x/tinker-cookbook/outputs/researchyqa/researchyqa_qwen-qwen3-4b-instruct-2507_bs4_gs4_bleu0.3_seed2_traj8k_lr4e-05_rank32_2025-11-25-21-53",
+  "host": "Yanzhens-MacBook-Air.local",
+  "executable": "/opt/miniconda3/envs/cs329x_hw2/bin/python",
+  "cpu_count": 10,
+  "cpu_count_logical": 10,
+  "disk": {
+    "/": {
+      "total": "494384795648",
+      "used": "120760168448"
+    }
+  },
+  "memory": {
+    "total": "17179869184"
+  },
+  "apple": {
+    "name": "Apple M4",
+    "ecpuCores": 6,
+    "pcpuCores": 4,
+    "gpuCores": 10,
+    "memoryGb": 16,
+    "swapTotalBytes": "2147483648",
+    "ramTotalBytes": "17179869184"
+  },
+  "writerId": "ngujl5uju4wgv5qhiadn0renns52ug38"
+}
