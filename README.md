@@ -2,6 +2,7 @@
 
 Training and evaluation of search-augmented question-answering models using LLM-as-a-Judge reinforcement learning on **ResearchyQA** (factual questions) and **DebateQA** (controversial topics).
 
+Our data is available at [data](https://drive.google.com/drive/folders/1XQu-TkRrkjraHDpTXXMIMt_91G3GeP-z?usp=sharing)
 ## Overview
 
 Models learn to:
