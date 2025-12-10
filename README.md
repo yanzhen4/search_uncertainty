@@ -1,4 +1,12 @@
-# CS329x Final Project: Search-Augmented QA with LLM-as-a-Judge
+# CS329x Final Project: Can Search Agents Reason and Search Under Uncertainty?
+
+# Part 1: SU-Bench: Evaluation Benchmark for Uncertainty-Aware Search Agents
+
+Please refer to the notebook named "Baseline_Evaluations/agent_evaluation_pipeline.ipynb" for more information about the implementation details of our benchmark. "Baseline_Evaluations/datasets" contain the datasets we used for our evaluation (namely DebateQA, Researchy, QACC, and AmbigQA). Meanwhile, all our results are stored in "Baseline_Evaluations/results".
+
+Data used for our evaluation benchmark is available at [data](https://drive.google.com/drive/folders/1NbIDQn7Et7WOvg94FnzV06CDQVcEAVMD?usp=sharing).
+
+# Part 2: Search-Augmented QA with LLM-as-a-Judge
 
 Training and evaluation of search-augmented question-answering models using LLM-as-a-Judge reinforcement learning on **ResearchyQA** (factual questions) and **DebateQA** (controversial topics).
 
